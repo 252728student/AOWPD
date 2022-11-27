@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <omp.h>
 #include <chrono>
 #include <thread>
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-#define LASTNUMBER 1000000000
+#define LASTNUMBER 10
 
 char* isPrime = new char[LASTNUMBER + 1];
 
@@ -38,16 +38,15 @@ int erato()
         }
     }
 
-    if (LASTNUMBER >= 2)
-    {
-        primes = 1;
-    }
-
     // liczenie ilości liczb pierwszych
 #pragma omp parallel for reduction(+:primes)
     for (int i = 2; i <= LASTNUMBER; i++)
     {
         primes += isPrime[i];
+        if (isPrime[i])
+        {
+            cout << i;
+        }
     }
 
     return primes;
