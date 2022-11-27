@@ -43,10 +43,6 @@ int erato()
     for (int i = 2; i <= LASTNUMBER; i++)
     {
         primes += isPrime[i];
-        if (isPrime[i])
-        {
-            cout << i;
-        }
     }
 
     return primes;
