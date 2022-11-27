@@ -16,7 +16,10 @@ def main():
     kernel((1,), (N+1,), (data_array, N+1))
     cp.cuda.Stream.null.synchronize()
     time_end = time()
-    print(time_end - time_begin)
+    print(f"GPU time: {time_end - time_begin}")
+    for index, elem in enumerate(cp.asnumpy(data_array)):
+        if elem:
+            print(index, end= ", ")
     return
 
 if __name__ == "__main__":
