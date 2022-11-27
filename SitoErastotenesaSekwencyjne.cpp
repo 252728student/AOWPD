@@ -43,7 +43,12 @@ int erato()
     for (int i = 2; i <= LASTNUMBER; i++)
     {
         primes += isPrime[i];
+        if (isPrime[i])
+        {
+            cout << i << ",";
+        }
     }
+    cout << endl;
 
     return primes;
 }
@@ -58,7 +63,11 @@ int main()
 
     cout << "znaleziono: " << primesFound << " liczb pierwszych" << endl;
 
-    cout << "Time in milliseconds: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << endl;
-    cout << "Time in seconds: " << chrono::duration_cast<chrono::seconds>(end - start).count() << endl;
+    float time = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
+
+    cout << "Time in ns: " << time << endl;
+    cout << "Time in s: " << time / 1000000000;
 }
+
+
 
