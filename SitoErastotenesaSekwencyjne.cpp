@@ -7,7 +7,8 @@
 
 using namespace std;
 
-#define LASTNUMBER 10
+#define LASTNUMBER 10000
+#define REPEAT 100
 
 char* isPrime = new char[LASTNUMBER + 1];
 
@@ -43,12 +44,12 @@ int erato()
     for (int i = 2; i <= LASTNUMBER; i++)
     {
         primes += isPrime[i];
-        if (isPrime[i])
-        {
-            cout << i << ",";
-        }
+ //       if (isPrime[i])
+ //       {
+ //           cout << i << ",";
+ //       }
     }
-    cout << endl;
+//   cout << endl;
 
     return primes;
 }
@@ -57,17 +58,36 @@ int main()
 {
     int primesFound;
 
+    float avgTime = 0;
+    float timesTab[REPEAT];
     auto start = chrono::steady_clock::now();
-    primesFound = erato();
     auto end = chrono::steady_clock::now();
+
+   
+   for (int i = 0; i < REPEAT; i++)
+   {
+       start = chrono::steady_clock::now();
+
+       primesFound = erato();
+
+       end = chrono::steady_clock::now();
+
+       timesTab[i] = chrono::duration_cast<chrono::microseconds>(end - start).count();
+   }
+
+   for (int i = 0; i < REPEAT; i++)
+   {
+       avgTime += timesTab[i];
+   }
+
+    avgTime = avgTime / REPEAT;
 
     cout << "znaleziono: " << primesFound << " liczb pierwszych" << endl;
 
-    float time = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-
-    cout << "Time in ns: " << time << endl;
-    cout << "Time in s: " << time / 1000000000;
+    cout << "Time in micro s: " << avgTime << endl;
 }
+
+
 
 
 
