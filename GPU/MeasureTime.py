@@ -7,13 +7,13 @@ from SitoGPU import sito
 from Sito2 import sito2
 
 def main():
-    N = 1000
+    N = 10000
     data_array= cp.asarray(np.ones(N*(N+1), dtype=int))
     cp.reshape(data_array, [N+1, N]);
   #  kernel = sito()
     kernel = sito2()
     with profiler.profile():
-        print(benchmark(kernel, (((N+1+255)//1024,), (1024,),(data_array, N+1)), n_repeat=10))
+        print(benchmark(kernel, (((N+1+255)//1024 + 1,), (1024,),(data_array, N+1)), n_repeat=10))
 
     """
      for index, elem in enumerate(cp.asnumpy(data_array)):
