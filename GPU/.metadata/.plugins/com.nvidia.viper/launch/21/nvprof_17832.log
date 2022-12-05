@@ -1,0 +1,2 @@
+==17832== NVPROF is profiling process 17832, command: C:\Users\adjbo\AppData\Local\Programs\Python\Python311\python.exe D:\Studia\semestr_7\Akceleracja\AOWPD\GPU\MeasureTime.py --metrics
+==17832== Generated result file: D:\Studia\semestr_7\Akceleracja\AOWPD\GPU\.metadata\.plugins\com.nvidia.viper\launch\21\api_17832.log

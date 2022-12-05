@@ -1,0 +1,2 @@
+==20640== NVPROF is profiling process 20640, command: C:\Users\adjbo\AppData\Local\Programs\Python\Python311\python.exe D:\Studia\semestr_7\Akceleracja\AOWPD\GPU\MeasureTime.py --metrics
+==20640== Error: Internal profiling error 4190:999.
