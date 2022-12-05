@@ -13,7 +13,7 @@ def main():
   #  kernel = sito()
     kernel = sito2()
     with profiler.profile():
-        print(benchmark(kernel, (((N+1+255)//1024 + 1,), (1024,),(data_array, N+1)), n_repeat=10))
+        print(benchmark(kernel, (((N+1+1023)//1024 + 1,), (1024,),(data_array, N+1)), n_repeat=10))
 
     """
      for index, elem in enumerate(cp.asnumpy(data_array)):
